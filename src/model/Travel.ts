@@ -4,6 +4,10 @@ export class Travel {
     constructor() {
         this._travel = new Array();
     }
+
+    addStep(step: TravelPosition) {
+        this._travel.push(step);
+    }
 }
 
 export class TravelPosition {

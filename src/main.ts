@@ -3,5 +3,8 @@ import "./style/reset-css.css"
 import './style.css'
 
 import App from './App.vue'
+import TravelBuilder from './domain/builder/TravelBuilder'
 
-createApp(App).mount('#app')
+const app = createApp(App, { TravelBuilder: TravelBuilder })
+    .mount('#app');
+
