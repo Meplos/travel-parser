@@ -1,6 +1,6 @@
 import { Travel, GpsPoint, TravelPosition } from './../../model/Travel';
 import ITravelBuilder from "../interface/ITravelBuilder";
-
+import L from 'leaflet'
 export default class TravelBuilder implements ITravelBuilder {
 
     private _travel: Travel;
@@ -15,7 +15,7 @@ export default class TravelBuilder implements ITravelBuilder {
         const step = new TravelPosition(point1, point2);
 
         this._travel.addStep(step);
-        return this  ;
+        return this;
     };
 
     setTimeBeetweenPoint(interval: number) {
@@ -23,9 +23,9 @@ export default class TravelBuilder implements ITravelBuilder {
         return this;
     }
 
-    getResult()  {
+    getResult() {
         //TODO Implement
 
-        return this._travel
+        return this._travel.getLatLngArray();
     };
 }

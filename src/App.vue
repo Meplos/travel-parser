@@ -346,6 +346,7 @@ const props = defineProps<TravelAppConfig>();
 
 const rawInput = ref(EMPTY);
 
+const path = ref<number[][][]>([]);
 
 
 
@@ -367,15 +368,15 @@ const processUserInput = () => {
   for (let i = 1; i < travelraw.length; i++) {
     builder.addPoints(travelraw[i - 1], travelraw[i]);
   }
-  console.log(builder.getResult());
-
+  path.value = builder.getResult();
 }
+
 
 </script>
 
 <template>
   <div class="app">
-    <Map class="app__map"></Map>
+    <Map class="app__map" :path="path"></Map>
     <JsonEditor class="app__editor" v-model="code"></JsonEditor>
   </div>
 </template>
